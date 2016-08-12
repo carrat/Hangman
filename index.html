@@ -168,6 +168,22 @@ for (var i=0; i < activeMysteryWord.length; i++) {
         							var update = "You Lost!";
 									$('#endGame').html("<h1>" + update + "</h1>");
 
+									//Shpw picture of losing animal
+
+									// Set location of losing image
+									var loseImage = "assets/images/hanginthere.jpg";	
+									loseImage.setAttribute('width', '500px');
+
+									// Output losing image
+									$('#endGame').html(loseImage);
+
+
+									// Play sound of winning animal 
+
+									var audioElement = document.createElement('audio');
+	        						audioElement.setAttribute('src', 'assets/sounds/win.mp3');
+        							audioElement.play();
+
 
 									// Show Play Again Button
 
@@ -375,6 +391,7 @@ for (i=0; i < mysteryWordSpaces.length; i++) {
 		gameOver = 0;
 		activeMysteryWord = '';
 		winImage = '';
+		loseImage = '';
 
 		// Choose a mystery word for the active game
 
