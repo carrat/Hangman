@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Hangmanimal</title>
 	<link href="assets/css/hangman_style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<script   src="https://code.jquery.com/jquery-3.1.0.slim.js"   integrity="sha256-L6ppAjL6jgtRmfiuigeEE5AwNI2pH/X9IBbPyanJeZw="   crossorigin="anonymous"></script>
 
 <script>
@@ -238,7 +239,7 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 
 			$('#strikesBoard').html("<h2>Strikes</h2>");
 			for (i=0; i < strikes; i++) {
-		        $("#strikesBoard").append("<h1>* </h1>");
+		        $("#strikesBoard").append("<i class="fa fa-thumbs-down fa-2x white"></i>"); 
 						
 			}
 
@@ -311,7 +312,7 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 			<script>
 				
 				for (i=0; i < incorrectGuesses.length; i++) {
-        			$("#strikesBoard").append("<h1>* </h1>");
+        			$("#strikesBoard").append("<i class=&#34;fa fa-thumbs-down fa-2x white&#34;></i>"); 
 				
 				}
 			</script>

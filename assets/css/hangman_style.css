@@ -306,6 +306,10 @@ body {
 
 }
 
+.white {
+	color: #FFFFFF;
+}
+
 
 button:hover {
 	background: #fbac3c;
