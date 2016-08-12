@@ -115,6 +115,17 @@ color: white;
 
 }
 
+#scoreboard h2 {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	color: #fbac3c;
+	line-height: 20px;
+	font-weight: normal;
+	margin: 0;
+	padding-bottom: 10px;
+}
+
+
 #scoreboardWins {
 
 	display: inline-block;
