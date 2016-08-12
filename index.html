@@ -16,12 +16,10 @@
 	var backgroundImages = ['dolphin.jpg', 'gorilla.jpg', 'koala.jpg', 'moose.jpg', 'orangutan.jpg', 'polarbear.jpg', 'tiger.jpg'];
 	var activeBG = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
 
-	$('html').css({
-		'background-image': 'url(assets/images/bg/' + backgroundImages[Math.floor(Math.random() * backgroundImages.length)] + ')'
-		'background-size: cover'
-		'min-height: 100%'
-
-	});
+	$('html').css({'background-image': 'url(assets/images/bg/' + backgroundImages[Math.floor(Math.random() * backgroundImages.length)] + ')'});
+	$('html').css({'background-size: cover'});
+	$('html').css({'min-height: 100%'});
+	
 
 	</script>
 
