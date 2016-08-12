@@ -5,7 +5,25 @@
 	<title>Hangmanimal</title>
 	<link href="assets/css/hangman_style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-	<script   src="https://code.jquery.com/jquery-3.1.0.slim.js"   integrity="sha256-L6ppAjL6jgtRmfiuigeEE5AwNI2pH/X9IBbPyanJeZw="   crossorigin="anonymous"></script>
+	<script   src="https://code.jquery.com/jquery-3.1.0.slim.js"   integrity="sha256-L6ppAjL6jgtRmfiuigeEE5AwNI2pH/X9IBbPyanJeZw="   crossorigin="anonymous">
+		
+	</script>
+
+	<script>
+
+	// Make random background image
+
+	var backgroundImages = ['dolphin.jpg', 'gorilla.jpg', 'koala.jpg', 'moose.jpg', 'orangutan.jpg', 'polarbear.jpg', 'tiger.jpg'];
+	var activeBG = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+
+	$('html').css({
+		'background-image': 'url(assets/images/bg/' + backgroundImages[Math.floor(Math.random() * backgroundImages.length)] + ')'
+		'background-size: cover'
+		'min-height: 100%'
+
+	});
+
+	</script>
 
 <script>
 // set initial variables
