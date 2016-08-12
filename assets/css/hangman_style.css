@@ -10,14 +10,11 @@
 
 }*/
 body {
-	
 	margin-top: 5px;
 }
 
 a {
-
 color: white;
-
 
 }
 
@@ -29,11 +26,8 @@ color: white;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #7f7f7f;
-
-
-
-
 }
+
 #header {
 	width:600px;
 	margin-right: auto;
@@ -71,9 +65,6 @@ color: white;
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
-
-
-
 }
 
 #notifications {
@@ -94,12 +85,14 @@ color: white;
 	
 }
 
-
-
 #scoreboard {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	text-align: center;
+	border-color: #7f7f7f;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
 
 }
 
@@ -111,8 +104,6 @@ color: white;
 	font-weight: normal;
 	padding-bottom: 0px;
 	margin-top: 10px;
-
-
 }
 
 #scoreboard h2 {
@@ -125,20 +116,13 @@ color: white;
 	padding-bottom: 10px;
 }
 
-
 #scoreboardWins {
-
 	display: inline-block;
 	margin-right: 40px;
-
-
 }
 
 #scoreboardLosses {
-
 	display: inline-block;
-
-
 }
 
 #endGame {
@@ -151,7 +135,6 @@ color: white;
 
 }
 
-
 #endGame h1 {
 	font-family: Arial, sans-serif;
 	font-size: 30px;
@@ -163,16 +146,16 @@ color: white;
 
 }
 
-
-
 #strikesBoard {
 	text-align: center;
 	display: inline-block;
 	margin-right: 40px;
 	vertical-align: top;
-
-
-
+	border-color: #7f7f7f;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 #strikesBoard h1 {
@@ -183,9 +166,9 @@ color: white;
 	padding: 0;
 	margin: 0;
 	display: inline;
+	padding-bottom: 10px;
 
 }
-
 
 #strikesBoard h2 {
 	font-family: Arial, sans-serif;
@@ -197,6 +180,13 @@ color: white;
 	padding-bottom: 10px;
 }
 
+#strikesBoard i {
+	padding-bottom: 10px;
+
+
+
+}
+
 #letterboard {
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -204,8 +194,10 @@ color: white;
 	clear: both;
 	display: inline-block;
 	vertical-align: top;
-
-
+	border-color: #7f7f7f;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
 
 }
 
@@ -219,7 +211,6 @@ color: white;
 	padding: 0px;
 	
 }
-
 
 #letterboard h2 {
 	font-family: Arial, sans-serif;
@@ -239,14 +230,9 @@ color: white;
 	margin-top: 0px;
 	margin-bottom: 10px;
 	text-align: left;
-	background-color: rgba(60,60,120,0.25);
+	background-color: rgba(60,60,60,0.55);
 	padding: 0px;
-	
-
-
-
 }
-
 
 #instructions-box {
 	display: inline-block;
@@ -254,8 +240,6 @@ color: white;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin: 0px;
-
-
 }
 
 #instructions h1 {
@@ -267,7 +251,6 @@ color: white;
 	padding: 0;
 	margin: 0;
 }
-
 
 #instructions p {
 	font-family: Arial, sans-serif;
@@ -284,12 +267,7 @@ color: white;
 	padding-left: 40px;
 	padding-top: 25px;
 	vertical-align: top;
-
-
-
 }
-
-
 
 #footer {
 	width:600px;
@@ -304,38 +282,16 @@ color: white;
 	font-size: 10px;
 	color: #fbac3c;
 	margin-top: 0px;
-
-
 }
 
 #footer p {
 	font-family: Arial, sans-serif;
 	font-size: 12px;
 	color: #777882;
-
-
-
-
-}
-
-#logo {
-
-
-
-}
-
-#supplemental {
-
-
-
 }
 
 #mystery-word {
 	text-align: center;
-
-
-
-
 }
 
 #mystery-word h1 {
@@ -346,13 +302,7 @@ color: white;
 	letter-spacing: .1em;
 	display: inline;
 	margin-right: 10px;
-
-
-
-
-
 }
-
 
 .replay-button {
 	background: #FFFFFF;
@@ -372,9 +322,6 @@ color: white;
 button:hover {
 	background: #fbac3c;
 	color: #FFFFFF;
-
-
-
 }
 
 @media screen and (max-width: 768px) {
