@@ -171,8 +171,11 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 									//Shpw picture of losing animal
 
 									// Set location of losing image
-									var loseImage = "assets/images/hanginthere.jpg";	
-									loseImage.setAttribute('width', '500px');
+
+									var loseImage = document.createElement("IMG");
+									loseImage.setAttribute('width', '400px');
+									loseImage.setAttribute('src', 'assets/images/hanginthere.jpg');
+									
 
 									// Output losing image
 									$('#endGame').html(loseImage);
@@ -181,7 +184,7 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 									// Play sound of winning animal 
 
 									var audioElement = document.createElement('audio');
-	        						audioElement.setAttribute('src', 'assets/sounds/win.mp3');
+	        						audioElement.setAttribute('src', 'assets/sounds/lose.mp3');
         							audioElement.play();
 
 
