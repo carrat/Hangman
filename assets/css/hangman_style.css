@@ -66,6 +66,16 @@ color: white;
 	padding-top: 5px;
 }
 
+#guessBoard {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+
+
+}
+
 #notifications {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -145,9 +155,10 @@ color: white;
 
 
 #strikesBoard {
-	margin-top: 10px;
-	margin-bottom: 10px;
 	text-align: center;
+	display: inline-block;
+	margin-right: 40px;
+	vertical-align: top;
 
 
 
@@ -172,6 +183,7 @@ color: white;
 	line-height: 20px;
 	font-weight: normal;
 	margin: 0;
+	padding-bottom: 10px;
 }
 
 #letterboard {
@@ -179,6 +191,8 @@ color: white;
 	margin-bottom: 0px;
 	text-align: center;
 	clear: both;
+	display: inline-block;
+	vertical-align: top;
 
 
 

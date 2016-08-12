@@ -314,32 +314,37 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 				
 				</div>
 
-				<div id="strikesBoard">
-				<h2>Strikes</h2>
-				<!-- output the number of incorrect gueeses -->
-				<script>
+				<div id="guessBoard">
+
+					<div id="strikesBoard">
+					<h2>Strikes</h2>
+					<!-- output the number of incorrect gueeses -->
+					<script>
+						
+						for (i=0; i < incorrectGuesses.length; i++) {
+		        			var newElement = document.createElement('i');
+						newElement.setAttribute('class', 'fa fa-thumbs-down fa-2x white');
+				       $("#strikesBoard").append(newElement); 
+						
+						}
+					</script>
+					</div>
+
+					<div id="letterboard">
+					<h1>Letters Already Guessed</h1>
+					<!-- Output the letters already guessed -->
+					<script>	
+						for (i=0; i < allGuesses.length; i++) {
+
+		        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");	
+						
+						}
+
+					</script>
+					</div>
 					
-					for (i=0; i < incorrectGuesses.length; i++) {
-	        			var newElement = document.createElement('i');
-					newElement.setAttribute('class', 'fa fa-thumbs-down fa-2x white');
-			       $("#strikesBoard").append(newElement); 
-					
-					}
-				</script>
 				</div>
 
-				<div id="letterboard">
-				<h1>Letters Already Guessed</h1>
-				<!-- Output the letters already guessed -->
-				<script>	
-					for (i=0; i < allGuesses.length; i++) {
-
-	        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");	
-					
-					}
-
-				</script>
-				</div>
 
 				<div id="scoreboard">
 				<!-- Output scoreboard -->
