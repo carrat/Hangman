@@ -9,8 +9,8 @@
 <script>
 // set initial variables
 
-var mysteryWords = ['SIBERIAN TIGER', 'FLYING SQUIRREL', 'EMPEROR PENGUIN', 'CHIMPANZEE', 'AFRICAN ELEPHANT', 'DUCKBILLED PLATYPUS', 'GROUNDHOG', 'PRAIRIE DOG', 'HIPPOPOTAMUS']; // array of mystery words
-var strikes = 0; // How many wrong guesses have there been?
+var mysteryWords = ['SIBERIAN TIGER', 'FLYING SQUIRREL', 'EMPEROR PENGUIN', 'CHIMPANZEE', 'AFRICAN ELEPHANT', 'DUCKBILLED PLATYPUS', 'GROUNDHOG', 'PRAIRIE DOG', 'HIPPOPOTAMUS', 'ZEBRA', 'RINGTAILED LEMUR', 'AARDVARK', 'HEDGEHOG', 'SLOTH', 'RHINOCEROS', 'SEA TURTLE', 'LONGHORN', 'GECKO', 'YELLOW JACKET', 'UNICORN', 'PORCUPINE', 'POLAR BEAR', 'KANGAROO', 'GIANT PANDA' ]; // array of mystery words
+var strikes = 0; // How many wrong guesses have there been?''
 var correctGuesses = []; //array of correct letters guessed
 var incorrectGuesses = []; // array of incorrect letters guessed
 var allGuesses = []; // array of all letters guessed
@@ -29,6 +29,10 @@ var mysteryUpdate = '';
 // Choose a mystery word for the active game
 
 var activeMysteryWord = mysteryWords[Math.floor(Math.random() * mysteryWords.length)];
+
+// Find Index of Active Mystery Word
+
+var activeMysteryWordIndex = mysteryWords.indexOf(activeMysteryWord);
 
 // add blank spaces to mysteryWordSpaces
 
@@ -70,8 +74,6 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 
 				else {
 
-				
-
 					//Does user guess appear in mystery word?
 
 						if ($.inArray(userGuess, activeMysteryWord) >= 0) {
@@ -102,11 +104,40 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 
 							else {
 
-								notificationsContent = 'You Won!';
+								notificationsContent = '';
 								wins++;
 								gameOver = 1;
 
-								// Play sound of winning animal or show picture of winning animal
+								var update = "You Won!";
+								$('#endGame').html("<h1>" + update + "</h1>");
+
+								//Shpw picture of winning animal
+
+								// Set location of winning image
+								var winImage = "assets/images/wins/" + activeMysteryWordIndex + ".jpg";
+
+								// assign location of winning image
+								var newImage = document.createElement("IMG");
+								newImage.setAttribute('width', '500px');
+								newImage.setAttribute('src', winImage);
+
+								// Output winning image
+								$('#endGame').html(newImage);
+
+
+								// Play sound of winning animal 
+
+								var audioElement = document.createElement('audio');
+	        					audioElement.setAttribute('src', 'assets/sounds/win.mp3');
+        						audioElement.play();
+
+        						// Show Play Again Button
+	
+        						//var newButton = document.createElement('button');
+        						//newButton.setAttribute('class', 'replay-button');
+								//newButton.innerHTML = "Play Again";
+
+								//$('#replay').html(newButton);
 
 							}
 
@@ -122,11 +153,35 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 									//Check to see if they have lost the game
 
 									if (strikes >= 5) {
-									notificationsContent = "You Lost!";
+									notificationsContent = "";
 									losses++;
 									gameOver = 1;
 
+									// Reveal mystery word
+
+									for (i=0; i < activeMysteryWord.length; i++) {
+										mysteryWordSpaces[i] = activeMysteryWord[i];
 									}
+
+									// Notify user of result
+									
+        							var update = "You Lost!";
+									$('#endGame').html("<h1>" + update + "</h1>");
+
+
+									// Show Play Again Button
+
+									
+        							//var newButton = document.createElement('button');
+        							//newButton.setAttribute('class', 'replay-button');
+									//newButton.innerHTML = "Play Again";
+
+									//$('#replay').html(newButton);
+									
+
+									}
+
+									
 
 
 						}
@@ -201,15 +256,30 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 		<!-- Start output of mystery word -->
 			<Div id="instructions">
 			<h1>Instructions</h1>
-			<p>Try to guess the mystery animal!</p>
+			<p>Try to guess the mystery animal! Type a letter on the keyboard to guess.</p>
 			<p>Five strikes and you're out.</p>
 			</Div>
+
+			<div id="replay">
+			<button class="replay-button">Play Again</button>
+			</div>
+			
+			
+
+			
 
 			<div id="notifications">
 			<script>
         	$('#notifications').html("<h1>" + notificationsContent + "</h1>");
         	</script>
 			</div>
+
+			<div id="endGame">
+
+
+
+			</div>
+
 
 			<div id="mystery-word" class="mystery-word">
 			<!-- Output the mystery word game board -->
@@ -234,39 +304,39 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 			<script>	
 				for (i=0; i < allGuesses.length; i++) {
 
-        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");
+        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");	
 				
 				}
+
 			</script>
 			</div>
 
 			<div id="scoreboard">
 			<!-- Output scoreboard -->
 
-			<div id="scoreboardWins">
-			<script>
-			var winningScoreDiv = $('<h1>');
-        	winningScoreDiv.html("Wins: " + wins);
-			$('#scoreboardWins').append(winningScoreDiv);
-			</script>
+				<div id="scoreboardWins">
+				<script>
+				var winningScoreDiv = $('<h1>');
+	        	winningScoreDiv.html("Wins: " + wins);
+				$('#scoreboardWins').append(winningScoreDiv);
+				</script>
+
+				</div>
+
+				<div id="scoreboardLosses">
+				<script>
+				var losingScoreDiv = $('<h1>');
+	        	losingScoreDiv.html("Losses: " + losses);
+				$('#scoreboardLosses').append(losingScoreDiv);
+				</script>
+				</div>
 
 			</div>
 
-			<div id="scoreboardLosses">
-			<script>
-			var losingScoreDiv = $('<h1>');
-        	losingScoreDiv.html("Losses: " + losses);
-			$('#scoreboardLosses').append(losingScoreDiv);
-			</script>
-			</div>
+
+
+
 			
-			</div>
-
-
-			<div id="replay">
-			<button class="replay-button">Play Again</button>
-
-			</div>
 
 		</div>
 
@@ -304,10 +374,17 @@ for (i=0; i < mysteryWordSpaces.length; i++) {
 		notificationsContent = '';
 		gameOver = 0;
 		activeMysteryWord = '';
+		winImage = '';
 
 		// Choose a mystery word for the active game
 
 		activeMysteryWord = mysteryWords[Math.floor(Math.random() * mysteryWords.length)];
+
+		// Find Index of Active Mystery Word
+
+		activeMysteryWordIndex = mysteryWords.indexOf(activeMysteryWord);
+
+
 
 		// add blank spaces to mysteryWordSpaces
 
@@ -345,6 +422,10 @@ for (i=0; i < mysteryWordSpaces.length; i++) {
 
 		// Rewrite Notifications
 		$('#notifications').html("<h1>" + notificationsContent + "</h1>");
+
+		// Rewrite End Game
+		$('#endGame').html("");
+
 
 		// Rewrite Mystery Word
 
