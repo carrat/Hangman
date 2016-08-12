@@ -219,7 +219,8 @@ color: white;
 	line-height: 50px;
 	font-weight: normal;
 	padding: 0;
-	margin-right: 10px;
+	margin-right: 5 px;
+	margin-left: 5px;
 	display: inline;
 	margin-top: 0px;
 	padding: 0px;
@@ -301,7 +302,8 @@ color: white;
 	line-height: 60px;
 	letter-spacing: .1em;
 	display: inline;
-	margin-right: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 .replay-button {
