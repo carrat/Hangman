@@ -14,6 +14,12 @@ body {
 	margin-top: 5px;
 }
 
+a {
+
+color: white;
+
+
+}
 
 #container {
 	width: 610px;
@@ -46,12 +52,16 @@ body {
 	margin-left: auto;
 	background-color: rgba(128,64,0,0.75);
 	width: 600px;
-	padding-top: 20px;
+	padding-top: 0px;
 	padding-bottom: 10px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 0px;
+	padding-right: 0px;
 	/*opacity: 0.9;
     /*filter: alpha(opacity=90); /* For IE8 and earlier */
+}
+
+#gameBoard {
+	padding: 15px;
 }
 
 #notifications {
@@ -201,8 +211,22 @@ body {
 #instructions{
 	margin-top: 0px;
 	margin-bottom: 10px;
-	text-align: center;
+	text-align: left;
+	background-color: rgba(170,64,0,0.25);
+	padding: 0px;
+	
 
+
+
+}
+
+
+#instructions-box {
+	display: inline-block;
+	padding-left: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin: 0px;
 
 
 }
@@ -228,9 +252,11 @@ body {
 }
 
 #replay{
-	margin-top: 10px;
-	margin-bottom: 10px;
 	text-align: center;
+	display: inline-block;
+	padding-left: 40px;
+	padding-top: 25px;
+	vertical-align: top;
 
 
 
@@ -251,6 +277,7 @@ body {
 	font-size: 10px;
 	color: #fbac3c;
 	margin-top: 0px;
+
 
 }
 

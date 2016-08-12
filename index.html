@@ -278,10 +278,11 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 		<div id="main-content">
 		<!-- Start output of mystery word -->
 			<Div id="instructions">
+			<div id="instructions-box">
 			<h1>Instructions</h1>
 			<p>Try to guess the mystery animal! Type a letter on the keyboard to guess.</p>
 			<p>Five strikes and you're out.</p>
-			</Div>
+			</div>
 
 			<div id="replay">
 			<button class="replay-button">Play Again</button>
@@ -289,75 +290,80 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 			
 			
 
+			</Div>
+
 			
 
-			<div id="notifications">
-			<script>
-        	$('#notifications').html("<h1>" + notificationsContent + "</h1>");
-        	</script>
-			</div>
+			<div id="gameBoard">
 
-			<div id="endGame">
-
-
-
-			</div>
-
-
-			<div id="mystery-word" class="mystery-word">
-			<!-- Output the mystery word game board -->
-			
-			</div>
-
-			<div id="strikesBoard">
-			<h2>Strikes</h2>
-			<!-- output the number of incorrect gueeses -->
-			<script>
-				
-				for (i=0; i < incorrectGuesses.length; i++) {
-        			var newElement = document.createElement('i');
-				newElement.setAttribute('class', 'fa fa-thumbs-down fa-2x white');
-		       $("#strikesBoard").append(newElement); 
-				
-				}
-			</script>
-			</div>
-
-			<div id="letterboard">
-			<h1>Letters Already Guessed</h1>
-			<!-- Output the letters already guessed -->
-			<script>	
-				for (i=0; i < allGuesses.length; i++) {
-
-        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");	
-				
-				}
-
-			</script>
-			</div>
-
-			<div id="scoreboard">
-			<!-- Output scoreboard -->
-
-				<div id="scoreboardWins">
+				<div id="notifications">
 				<script>
-				var winningScoreDiv = $('<h1>');
-	        	winningScoreDiv.html("Wins: " + wins);
-				$('#scoreboardWins').append(winningScoreDiv);
-				</script>
+	        	$('#notifications').html("<h1>" + notificationsContent + "</h1>");
+	        	</script>
+				</div>
+
+				<div id="endGame">
+
+
 
 				</div>
 
-				<div id="scoreboardLosses">
+
+				<div id="mystery-word" class="mystery-word">
+				<!-- Output the mystery word game board -->
+				
+				</div>
+
+				<div id="strikesBoard">
+				<h2>Strikes</h2>
+				<!-- output the number of incorrect gueeses -->
 				<script>
-				var losingScoreDiv = $('<h1>');
-	        	losingScoreDiv.html("Losses: " + losses);
-				$('#scoreboardLosses').append(losingScoreDiv);
+					
+					for (i=0; i < incorrectGuesses.length; i++) {
+	        			var newElement = document.createElement('i');
+					newElement.setAttribute('class', 'fa fa-thumbs-down fa-2x white');
+			       $("#strikesBoard").append(newElement); 
+					
+					}
 				</script>
 				</div>
 
-			</div>
+				<div id="letterboard">
+				<h1>Letters Already Guessed</h1>
+				<!-- Output the letters already guessed -->
+				<script>	
+					for (i=0; i < allGuesses.length; i++) {
 
+	        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");	
+					
+					}
+
+				</script>
+				</div>
+
+				<div id="scoreboard">
+				<!-- Output scoreboard -->
+
+					<div id="scoreboardWins">
+					<script>
+					var winningScoreDiv = $('<h1>');
+		        	winningScoreDiv.html("Wins: " + wins);
+					$('#scoreboardWins').append(winningScoreDiv);
+					</script>
+
+					</div>
+
+					<div id="scoreboardLosses">
+					<script>
+					var losingScoreDiv = $('<h1>');
+		        	losingScoreDiv.html("Losses: " + losses);
+					$('#scoreboardLosses').append(losingScoreDiv);
+					</script>
+					</div>
+
+				</div>
+
+			</div>
 
 
 
@@ -366,7 +372,10 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 		</div>
 
 		<div id="footer"><p>&copy; 2016  <strong>Andrew Carr</strong><br>
-		[<em>No animals were harmed in the coding of this site.</em>]</p></div>
+		[<em>No animals were harmed in the coding of this site.</em>]</p>
+		<p>
+		Made as a demo project for <a href="https://www.codingbootcamputaustin.com/">The Coding Boot Camp</a> <br>at The University of Texas at Austin Center for Professinal Education</p>
+		</div>
 
 </div>
 
