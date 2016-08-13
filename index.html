@@ -27,8 +27,8 @@
 	</script>
 
 <script>
-// set initial variables
 
+// set initial variables
 var mysteryWords = ['SIBERIAN TIGER', 'FLYING SQUIRREL', 'EMPEROR PENGUIN', 'CHIMPANZEE', 'AFRICAN ELEPHANT', 'DUCKBILLED PLATYPUS', 'GROUNDHOG', 'PRAIRIE DOG', 'HIPPOPOTAMUS', 'ZEBRA', 'RINGTAILED LEMUR', 'AARDVARK', 'HEDGEHOG', 'SLOTH', 'RHINOCEROS', 'SEA TURTLE', 'LONGHORN', 'GECKO', 'YELLOW JACKET', 'UNICORN', 'PORCUPINE', 'POLAR BEAR', 'KANGAROO', 'GIANT PANDA' ]; // array of mystery words
 var strikes = 0; // How many wrong guesses have there been?''
 var correctGuesses = []; //array of correct letters guessed
@@ -53,7 +53,7 @@ var activeMysteryWord = mysteryWords[Math.floor(Math.random() * mysteryWords.len
 
 var activeMysteryWordIndex = mysteryWords.indexOf(activeMysteryWord);
 
-// add blank spaces to mysteryWordSpaces
+// add blank spaces to mysteryWordSpaces to generate gameboard
 
 for (var i=0; i < activeMysteryWord.length; i++) {
 
@@ -66,6 +66,9 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 	}	
 
 }
+
+
+//START GAME
 
 // Get user's guess
 
@@ -96,17 +99,16 @@ console.log(gameOver);
 
 						var check = $.inArray(userGuess, activeMysteryWord);
 
-						notificationsContent = "Correct!";
+						notificationsContent = "Correct!"; //Notify the user that their guess is correct
 						correctGuesses.push(userGuess); // update Correct Guesses array
 					    allGuesses.push(userGuess); //update All Guesses array	
 
 					 	for (i=0; i < activeMysteryWord.length; i++) {
 
-
 							if (userGuess == activeMysteryWord[i]) {
 
 								// Update board with correct letters filled in
-								mysteryWordSpaces[i] = userGuess;				
+								mysteryWordSpaces[i] = userGuess;	// replace '_' with the correct letter			
 
 							}
 							
@@ -114,17 +116,20 @@ console.log(gameOver);
 
 						//check to see if they have solved the puzzle
 
-						if (mysteryWordSpaces.includes('_')) {			
+						if (mysteryWordSpaces.includes('_')) {	
+						// if gameboard still contains '_" then they have not solved it		
 
 						}
 
 						else {
 
-							notificationsContent = '';
-							wins++;
-							gameOver = 1;
+							// they have won the game
 
-							var update = "You Won!";
+							notificationsContent = ''; // empty the in-game notifications board
+							wins++; // increase the number of wins for the scoreboard
+							gameOver = 1; // sets game over setting to "1" to escape outside game functions
+
+							var update = "You Won!"; // notify user they have won
 							$('#endGame').html("<h1>" + update + "</h1>");
 
 							//Shpw picture of winning animal
@@ -132,7 +137,7 @@ console.log(gameOver);
 							// Set location of winning image
 							var winImage = "assets/images/wins/" + activeMysteryWordIndex + ".jpg";
 
-							// assign location of winning image
+							// assign location and attributes of winning image
 							var newImage = document.createElement("IMG");
 							newImage.setAttribute('width', '500px');
 							newImage.setAttribute('src', winImage);
@@ -140,15 +145,12 @@ console.log(gameOver);
 							// Output winning image
 							$('#endGame').append(newImage);
 
-
-							// Play sound of winning animal 
-
+							// Play sound of winning
 							var audioElement = document.createElement('audio');
         					audioElement.setAttribute('src', 'assets/sounds/win.mp3');
     						audioElement.play();
 
     						// Show Play Again Button
-
     						var newButton = document.createElement('button');
     						newButton.setAttribute('class', 'replay-button');
 							newButton.innerHTML = "Play Again";
@@ -156,7 +158,6 @@ console.log(gameOver);
 							$('#replay').html(newButton);
 
 							// START GAME OVER
-
 							$('.replay-button').on('click', restartGame);
 
 						}
@@ -190,10 +191,9 @@ console.log(gameOver);
     						var update = "You Lost!";
 							$('#endGame').html("<h1>" + update + "</h1>");
 
-							//Shpw picture of losing animal
+							//Shpw picture of losing
 
 							// Set location of losing image
-
 							var loseImage = document.createElement("IMG");
 							loseImage.setAttribute('width', '400px');
 							loseImage.setAttribute('src', 'assets/images/hanginthere.jpg');
@@ -201,14 +201,12 @@ console.log(gameOver);
 							// Output losing image
 							$('#endGame').append(loseImage);
 
-							// Play sound of losing animal 
-
+							// Play sound of losing
 							var audioElement = document.createElement('audio');
         					audioElement.setAttribute('src', 'assets/sounds/lose.mp3');
     						audioElement.play();
 
 							// Show Play Again Button
-
     						var newButton = document.createElement('button');
     						newButton.setAttribute('class', 'replay-button');
 							newButton.innerHTML = "Play Again";
@@ -216,7 +214,6 @@ console.log(gameOver);
 							$('#replay').html(newButton);
 
 							// START GAME OVER
-
 							$('.replay-button').on('click', restartGame);				
 
 							}
@@ -225,9 +222,9 @@ console.log(gameOver);
 
 			}
 
-	// Rewrite content to boards
+	// update content to boards
 
-		// Rewrite Scoreboard
+		// update Scoreboard
 
 		var winningScoreDiv = $('<h1>');
 		var losingScoreDiv = $('<h1>');
@@ -236,10 +233,10 @@ console.log(gameOver);
 		$('#scoreboardWins').html(winningScoreDiv);
 		$('#scoreboardLosses').html(losingScoreDiv);
 
-		// Rewrite Notifications
+		// Update Notifications
 		$('#notifications').html("<h1>" + notificationsContent + "</h1>");
 
-		// Rewrite Mystery Word
+		// Update Mystery Word
 
 		$('#mystery-word').html("");
 
@@ -249,7 +246,7 @@ console.log(gameOver);
 					
 		}
 
-		// Rewrite Strikes
+		// Update Strikes
 		$('#strikesBoard').html("<h2>Strikes</h2>");
 		for (i=0; i < strikes; i++) {
 
@@ -259,7 +256,7 @@ console.log(gameOver);
 					
 		}
 
-		// Rewrite Letterboard
+		// Update Letterboard
 		$('#letterboard').html("<h1>Letters Already Guessed</h1>");
 
 		for (i=0; i < allGuesses.length; i++) {
@@ -286,10 +283,12 @@ console.log(gameOver);
 }
 
 </script>
-
 </head>
 
+
 <body>
+
+<!-- Start Display -->
 
 <div id="container">
 
@@ -308,9 +307,8 @@ console.log(gameOver);
 				</div>
 
 				<div id="replay">
-				<!-- <button class="replay-button">Play Again</button>-->
-				</div>
-					
+
+				</div>		
 			</Div>	
 
 			<div id="gameBoard">
@@ -322,7 +320,7 @@ console.log(gameOver);
 				</div>
 
 				<div id="endGame">
-
+				<!-- this is where image displays at end of game -->
 				</div>
 
 				<div id="mystery-word" class="mystery-word">
@@ -333,29 +331,12 @@ console.log(gameOver);
 
 					<div id="strikesBoard">
 					<h2>Strikes</h2>
-					<!-- output the number of incorrect gueeses -->
-					<script>
-						
-						for (i=0; i < incorrectGuesses.length; i++) {
-		        			var newElement = document.createElement('i');
-						newElement.setAttribute('class', 'fa  fa-close fa-2x white');
-				       $("#strikesBoard").append(newElement); 
-						
-						}
-					</script>
+					<!-- output the number of incorrect gueeses -->	
 					</div>
 
 					<div id="letterboard">
 					<h1>Letters Already Guessed</h1>
 					<!-- Output the letters already guessed -->
-					<script>	
-						for (i=0; i < allGuesses.length; i++) {
-
-		        			$("#letterboard").append("<h1>" + allGuesses[i] + "</h1>");	
-						
-						}
-
-					</script>
 					</div>
 
 				</div>
@@ -366,20 +347,11 @@ console.log(gameOver);
 				<!-- Output scoreboard -->
 
 					<div id="scoreboardWins">
-					<script>
-					var winningScoreDiv = $('<h1>');
-		        	winningScoreDiv.html("Wins: " + wins);
-					$('#scoreboardWins').append(winningScoreDiv);
-					</script>
-
+					<!-- Output scoreboard wins -->
 					</div>
 
 					<div id="scoreboardLosses">
-					<script>
-					var losingScoreDiv = $('<h1>');
-		        	losingScoreDiv.html("Losses: " + losses);
-					$('#scoreboardLosses').append(losingScoreDiv);
-					</script>
+					<!-- Output scoreboard losses -->
 					</div>
 
 				</div>
@@ -388,10 +360,10 @@ console.log(gameOver);
 
 		</div>
 
-		<div id="footer"><p>&copy; 2016  <strong>Andrew Carr</strong><br>
+		<div id="footer">
+		<p>&copy; 2016  <strong>Andrew Carr</strong><br>
 		[<em>No animals were harmed in the coding of this site.</em>]</p>
-		<p>
-		Demo project for <a href="https://www.codingbootcamputaustin.com/">The Coding Boot Camp</a>  at UT Austin Center for Professinal Education</p>
+		<p>Demo project for <a href="https://www.codingbootcamputaustin.com/">The Coding Boot Camp</a>  at UT Austin Center for Professinal Education</p>
 		</div>
 
 </div>
