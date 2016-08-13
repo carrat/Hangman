@@ -113,7 +113,7 @@ console.log(gameOver);
 							
 						}
 
-						//c heck to see if they have solved the puzzle
+						//check to see if they have solved the puzzle
 
 						if (mysteryWordSpaces.includes('_')) {			
 
@@ -139,7 +139,7 @@ console.log(gameOver);
 							newImage.setAttribute('src', winImage);
 
 							// Output winning image
-							$('#endGame').html(newImage);
+							$('#endGame').append(newImage);
 
 
 							// Play sound of winning animal 
@@ -156,9 +156,13 @@ console.log(gameOver);
 
 							//$('#replay').html(newButton);
 
+							console.log();
+
 						}
 
 					}
+
+					// They chose incorrectly so....
 
 					else {
 								
@@ -194,7 +198,7 @@ console.log(gameOver);
 							loseImage.setAttribute('src', 'assets/images/hanginthere.jpg');
 								
 							// Output losing image
-							$('#endGame').html(loseImage);
+							$('#endGame').append(loseImage);
 
 							// Play sound of winning animal 
 
@@ -209,6 +213,8 @@ console.log(gameOver);
 							//newButton.innerHTML = "Play Again";
 
 							//$('#replay').html(newButton);
+
+							console.log();
 
 							}
 
