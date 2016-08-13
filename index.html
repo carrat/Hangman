@@ -150,13 +150,17 @@ console.log(gameOver);
 
     						// Show Play Again Button
 
-    						//var newButton = document.createElement('button');
-    						//newButton.setAttribute('class', 'replay-button');
-							//newButton.innerHTML = "Play Again";
+    						var newButton = document.createElement('button');
+    						newButton.setAttribute('class', 'replay-button');
+							newButton.innerHTML = "Play Again";
 
-							//$('#replay').html(newButton);
+							$('#replay').html(newButton);
 
-							console.log();
+							// START GAME OVER
+
+							$('.replay-button').on('click', restartGame);
+
+							
 
 						}
 
@@ -200,7 +204,7 @@ console.log(gameOver);
 							// Output losing image
 							$('#endGame').append(loseImage);
 
-							// Play sound of winning animal 
+							// Play sound of losing animal 
 
 							var audioElement = document.createElement('audio');
         					audioElement.setAttribute('src', 'assets/sounds/lose.mp3');
@@ -208,13 +212,15 @@ console.log(gameOver);
 
 							// Show Play Again Button
 
-    						//var newButton = document.createElement('button');
-    						//newButton.setAttribute('class', 'replay-button');
-							//newButton.innerHTML = "Play Again";
+    						var newButton = document.createElement('button');
+    						newButton.setAttribute('class', 'replay-button');
+							newButton.innerHTML = "Play Again";
 
-							//$('#replay').html(newButton);
+							$('#replay').html(newButton);
 
-							console.log();
+							// START GAME OVER
+
+							$('.replay-button').on('click', restartGame);				
 
 							}
 
@@ -296,7 +302,7 @@ console.log(gameOver);
 				</div>
 
 				<div id="replay">
-				<button class="replay-button">Play Again</button>
+				<!-- <button class="replay-button">Play Again</button>-->
 				</div>
 					
 			</Div>	
@@ -391,15 +397,20 @@ console.log(gameOver);
 
 $(document).ready(function(){
 
-for (i=0; i < mysteryWordSpaces.length; i++) {
+	for (i=0; i < mysteryWordSpaces.length; i++) {
 
-    $("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
-				
-}
+	    $("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
+					
+	}
 
 	// START GAME OVER
 
-	$('.replay-button').on('click', function() {
+	$('.replay-button').on('click', restartGame);
+
+});
+
+
+function restartGame() {
 
 		strikes = 0;
 		correctGuesses =[];
@@ -490,9 +501,7 @@ for (i=0; i < mysteryWordSpaces.length; i++) {
 
 		// Select random background image
 
-	});
-
-});
+	}
 
 </script>
 	
