@@ -45,7 +45,6 @@ var guessUpdate = '';
 var strikesUpdate = '';
 var mysteryUpdate = '';
 
-
 // Choose a mystery word for the active game
 
 var activeMysteryWord = mysteryWords[Math.floor(Math.random() * mysteryWords.length)];
@@ -160,8 +159,6 @@ console.log(gameOver);
 
 							$('.replay-button').on('click', restartGame);
 
-							
-
 						}
 
 					}
@@ -252,9 +249,7 @@ console.log(gameOver);
 					
 		}
 
-
 		// Rewrite Strikes
-
 		$('#strikesBoard').html("<h2>Strikes</h2>");
 		for (i=0; i < strikes; i++) {
 
@@ -265,13 +260,24 @@ console.log(gameOver);
 		}
 
 		// Rewrite Letterboard
-
-
 		$('#letterboard').html("<h1>Letters Already Guessed</h1>");
 
 		for (i=0; i < allGuesses.length; i++) {
 
-	        $("#letterboard").append("<h2>" + allGuesses[i] + "</h2>");
+				// When outputting all guesses, see if the guess being outputted was incorrect
+				if ($.inArray(allGuesses[i], incorrectGuesses) >= 0){
+
+					//if guess is incorrect, make it red
+					var badGuess = document.createElement('h2');
+					badGuess.setAttribute('class', 'red');
+					badGuess.innerHTML = allGuesses[i];
+					$("#letterboard").append(badGuess);
+				}
+
+				else {
+					//if guess was correct, leave it white
+					$("#letterboard").append("<h2>" + allGuesses[i] + "</h2>");
+				}    
 					
 		}
 
@@ -390,13 +396,12 @@ console.log(gameOver);
 
 </div>
 
-
 <script>
 
-// Write Mystery Word with Spaces
-
+// If page is ready
 $(document).ready(function(){
 
+	// Write Mystery Word with Spaces
 	for (i=0; i < mysteryWordSpaces.length; i++) {
 
 	    $("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
@@ -404,104 +409,95 @@ $(document).ready(function(){
 	}
 
 	// START GAME OVER
-
 	$('.replay-button').on('click', restartGame);
 
 });
 
-
 function restartGame() {
 
-		strikes = 0;
-		correctGuesses =[];
-		incorrectGuesses = [];
-		allGuesses = [];
-		mysteryWordSpaces = [];
-		notificationsContent = '';
-		gameOver = 0;
-		activeMysteryWord = '';
-		winImage = '';
-		loseImage = '';
+	strikes = 0;
+	correctGuesses =[];
+	incorrectGuesses = [];
+	allGuesses = [];
+	mysteryWordSpaces = [];
+	notificationsContent = '';
+	gameOver = 0;
+	activeMysteryWord = '';
+	winImage = '';
+	loseImage = '';
 
-		// Choose a mystery word for the active game
+	// Choose a mystery word for the active game
 
-		activeMysteryWord = mysteryWords[Math.floor(Math.random() * mysteryWords.length)];
+	activeMysteryWord = mysteryWords[Math.floor(Math.random() * mysteryWords.length)];
 
-		// Find Index of Active Mystery Word
+	// Find Index of Active Mystery Word
 
-		activeMysteryWordIndex = mysteryWords.indexOf(activeMysteryWord);
+	activeMysteryWordIndex = mysteryWords.indexOf(activeMysteryWord);
 
-		// add blank spaces to mysteryWordSpaces
+	// add blank spaces to mysteryWordSpaces
 
-		for (var i=0; i < activeMysteryWord.length; i++) {
+	for (var i=0; i < activeMysteryWord.length; i++) {
 
-			if (activeMysteryWord[i] !== " ") {
-			mysteryWordSpaces.push("_");
-			}
-								
-			else if (activeMysteryWord[i] == " ") {
-			mysteryWordSpaces.push(" ");
-			}	
+		if (activeMysteryWord[i] !== " ") {
+		mysteryWordSpaces.push("_");
+		}
+							
+		else if (activeMysteryWord[i] == " ") {
+		mysteryWordSpaces.push(" ");
+		}	
+
+	}
+
+	// Write Mystery Word with Spaces
+
+	for (i=0; i < mysteryWordSpaces.length; i++) {
+
+    $("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
+				
+	}
+
+	// Rewrite content to boards
+
+	// Rewrite Scoreboard
+	var winningScoreDiv = $('<h1>');
+	var losingScoreDiv = $('<h1>');
+	winningScoreDiv.html("Wins: " + wins);
+	losingScoreDiv.html("Losses: " + losses);
+	$('#scoreboardWins').html(winningScoreDiv);
+	$('#scoreboardLosses').html(losingScoreDiv);
+
+	// Rewrite Notifications
+	$('#notifications').html("<h1>" + notificationsContent + "</h1>");
+
+	// Rewrite End Game
+	$('#endGame').html("");
+
+	// Rewrite Mystery Word
+	$('#mystery-word').html("");
+
+	for (i=0; i < mysteryWordSpaces.length; i++) {
+
+		$("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
+						
+	}
+
+	// Rewrite Strikes
+	$('#strikesBoard').html("<h2>Strikes</h2>");
+	for (i=0; i < strikes; i++) {
+		$("#strikesBoard").append("<h1>* </h1>");
+						
+	}
+
+	// Rewrite Letterboard
+	$('#letterboard').html("<h1>Letters Already Guessed</h1>");
+
+	for (i=0; i < allGuesses.length; i++) {
+
+		$("#letterboard").append("<h2>" + allGuesses[i] + "</h2>");
+						
+	}
 
 }
-
-		// Write Mystery Word with Spaces
-
-		for (i=0; i < mysteryWordSpaces.length; i++) {
-
-	    $("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
-					
-	}
-
-		// Rewrite content to boards
-
-		// Rewrite Scoreboard
-
-		var winningScoreDiv = $('<h1>');
-		var losingScoreDiv = $('<h1>');
-		winningScoreDiv.html("Wins: " + wins);
-		losingScoreDiv.html("Losses: " + losses);
-		$('#scoreboardWins').html(winningScoreDiv);
-		$('#scoreboardLosses').html(losingScoreDiv);
-
-		// Rewrite Notifications
-		$('#notifications').html("<h1>" + notificationsContent + "</h1>");
-
-		// Rewrite End Game
-		$('#endGame').html("");
-
-		// Rewrite Mystery Word
-
-		$('#mystery-word').html("");
-
-		for (i=0; i < mysteryWordSpaces.length; i++) {
-
-			$("#mystery-word").append("<h1>" + mysteryWordSpaces[i] + "</h1>");
-							
-		}
-
-		// Rewrite Strikes
-
-		$('#strikesBoard').html("<h2>Strikes</h2>");
-		for (i=0; i < strikes; i++) {
-			$("#strikesBoard").append("<h1>* </h1>");
-							
-		}
-
-		// Rewrite Letterboard
-
-
-		$('#letterboard').html("<h1>Letters Already Guessed</h1>");
-
-		for (i=0; i < allGuesses.length; i++) {
-
-			$("#letterboard").append("<h2>" + allGuesses[i] + "</h2>");
-							
-		}
-
-		// Select random background image
-
-	}
 
 </script>
 	

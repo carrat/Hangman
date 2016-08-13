@@ -18,6 +18,12 @@ color: white;
 
 }
 
+#letterboard h2.red {
+	color: red;
+
+
+}
+
 #container {
 	width: 610px;
 	padding: 0px;
@@ -322,6 +328,8 @@ color: white;
 	margin-right: 5px;
 	margin-left: 5px;
 }
+
+
 
 
 button:hover {
