@@ -72,7 +72,7 @@ for (var i=0; i < activeMysteryWord.length; i++) {
 
 // Get user's guess
 
-document.onkeypress = function(event) {
+document.onkeydown = function(event) {
 
 var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
 
